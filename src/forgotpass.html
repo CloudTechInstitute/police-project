@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="../dist/output.css" rel="stylesheet" />
+    <title>Login</title>
+  </head>
+  <body class="relative bg-gray-100">
+    <div
+      class="bg-cover bg-center relative"
+      style="background-image: url('images/police.jpg')"
+    >
+      <div class="absolute inset-0 bg-blue-900 opacity-95"></div>
+      <div class="flex justify-center items-center h-screen relative">
+        <div
+          class="w-[30%] p-5 shadow-2xl backdrop-blur-sm bg-white/25 outline outline-1 outline-gray-200 rounded-2xl"
+        >
+          <input
+            type="text"
+            class="p-2 mb-2 block w-full outline outline-1 outline-gray-200 rounded-md bg-transparent"
+            name="user_id"
+            id=""
+            placeholder="enter you staff id"
+          />
+          <input
+            type="email"
+            class="p-2 mb-2 block w-full outline outline-1 outline-gray-200 rounded-md bg-transparent"
+            name="email"
+            id=""
+            placeholder="enter your email"
+          />
+
+          <button
+            type="submit"
+            name="submit"
+            class="p-2 mb-2 block w-full bg-blue-900 rounded-md text-white"
+          >
+            Submit
+          </button>
+          <div class="p-2">
+            <a href="login.html" class="text-white"
+              >Remembered you password? Sign In</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
