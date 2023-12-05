@@ -5,35 +5,54 @@
       <meta charset="UTF-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <link href="../../dist/output.css" rel="stylesheet" />
+      <link
+        rel="stylesheet"
+        href="../../node_modules/@fortawesome/fontawesome-free/css/all.min.css"
+      />
       <title>Login</title>
     </head>
   </head>
   <body>
-    <table class="table-fixed">
-      <thead>
-        <tr>
-          <th>Song</th>
-          <th>Artist</th>
-          <th>Year</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>The Sliding Mr. Bones (Next Stop, Pottersville)</td>
-          <td>Malcolm Lockyer</td>
-          <td>1961</td>
-        </tr>
-        <tr>
-          <td>Witchy Woman</td>
-          <td>The Eagles</td>
-          <td>1972</td>
-        </tr>
-        <tr>
-          <td>Shining Star</td>
-          <td>Earth, Wind, and Fire</td>
-          <td>1975</td>
-        </tr>
-      </tbody>
-    </table>
+    <div class="p-2">
+      <div class="w-full text-left">
+        <div class="border-b border-gray-200">
+          <table class="w-full divide-y divide-gray-300 border border-1">
+            <thead class="bg-gray-100">
+              <tr>
+                <th class="px-6 py-2 text-xs text-gray-500">ID</th>
+                <th class="px-6 py-2 text-xs text-gray-500">NAME</th>
+                <th class="px-6 py-2 text-xs text-gray-500">EMAIL</th>
+                <th class="px-6 py-2 text-xs text-gray-500">CREATED</th>
+                <th class="px-6 py-2 text-xs text-gray-500">ACTION</th>
+              </tr>
+            </thead>
+            <tbody class="bg-white divide-y divide-gray-300">
+              <tr class="whitespace-nowrap">
+                <td class="px-6 py-4 text-sm text-gray-500">1</td>
+                <td class="px-6 py-4">
+                  <div class="text-sm text-gray-900">Jon doe</div>
+                </td>
+                <td class="px-6 py-4">
+                  <div class="text-sm text-gray-500">jhondoe@example.com</div>
+                </td>
+                <td class="px-6 py-4 text-sm text-gray-500">2021-1-12</td>
+                <td class="px-6 py-4">
+                  <a
+                    href="#"
+                    class="px-4 py-1 text-sm text-blue-600 rounded-full"
+                    ><i class="fas fa-pen" title="edit"></i
+                  ></a>
+                  <a
+                    href="#"
+                    class="px-4 py-1 text-sm text-red-500 rounded-full"
+                    ><i class="fas fa-trash" title="delete"></i
+                  ></a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
