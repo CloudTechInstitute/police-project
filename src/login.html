@@ -5,6 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="../dist/output.css" rel="stylesheet" />
     <title>Login</title>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="../node_modules/@fortawesome/fontawesome-free/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css"
+    />
   </head>
   <body class="relative bg-gray-100">
     <div
@@ -16,26 +25,42 @@
         <div
           class="w-[100%] mx-5 md:w-[30%] p-5 shadow-2xl backdrop-blur-sm bg-white/25 outline outline-1 outline-gray-200 rounded-2xl"
         >
-          <div class="flex items-center justify-center p-5 mb-5">logo here</div>
-          <form>
+          <div class="flex items-center justify-center p-5 mb-5">
+            <img src="images/police-logo.png" class="w-[40%] md:w-[20%]" />
+          </div>
+          <form method="post" action="dashboard.html">
             <input
               type="text"
               class="p-2 mb-2 block w-full outline outline-1 outline-gray-200 rounded-md bg-transparent text-white"
-              name="user_id"
-              id=""
+              name="staff_id"
+              id="staff_id"
               placeholder="enter you staff id"
+              required
             />
-            <input
-              type="password"
-              class="p-2 mb-2 block w-full outline outline-1 outline-gray-200 rounded-md bg-transparent text-white"
-              name="password"
-              id=""
-              placeholder="enter password"
-            />
+            <p class="text-sm text-red-500 mb-2" id="staffErrorDiv"></p>
+            <div
+              class="flex w-full outline outline-1 outline-gray-200 rounded-md bg-transparent text-white p-2 mb-2 justify-between"
+            >
+              <input
+                type="password"
+                class="w-full outline-none focus:outline-none bg-transparent"
+                name="password"
+                id="password"
+                placeholder="Enter password"
+                required
+              />
+              <i
+                toggle="#password"
+                class="fa fa-fw fa-eye field-icon toggle-password cursor-default text-white w-[10%]"
+                onclick="togglePasswordVisibility()"
+              ></i>
+            </div>
+            <p class="text-sm text-red-500 mb-2" id="passErrorDiv"></p>
             <button
               type="submit"
-              name="login"
+              name="login_btn"
               class="p-2 mb-2 block w-full bg-blue-900 rounded-md text-white"
+              id="login_btn"
             >
               Login
             </button>
@@ -47,5 +72,84 @@
         </div>
       </div>
     </div>
+    <!-- scripts -->
+    <script
+      type="text/javascript"
+      src="
+    https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"
+    ></script>
+    <script type="text/javascript">
+      function togglePasswordVisibility() {
+        var passwordField = $("#password");
+        var fieldType = passwordField.attr("type");
+
+        if (fieldType === "password") {
+          passwordField.attr("type", "text");
+          $(".toggle-password").removeClass("fa-eye").addClass("fa-eye-slash");
+        } else {
+          passwordField.attr("type", "password");
+          $(".toggle-password").removeClass("fa-eye-slash").addClass("fa-eye");
+        }
+      }
+    </script>
+
+    <script>
+      $(document).ready(function () {
+        $("#login_btn").click(function (e) {
+          e.preventDefault();
+          var formData = {
+            staff_id: $("#staff_id").val(),
+            password: $("#password").val(),
+            login_btn: 1,
+          };
+          if (formData.staff_id == "" && formData.password == "") {
+            document.getElementById("staffErrorDiv").innerHTML =
+              "Staff ID is required";
+            document.getElementById("passErrorDiv").innerHTML =
+              "password is required";
+          } else if (formData.password == "") {
+            document.getElementById("passErrorDiv").innerHTML =
+              "password is required";
+          } else if (formData.staff_id == "") {
+            document.getElementById("staffErrorDiv").innerHTML =
+              "Staff ID is required";
+          } else {
+            var loginBtn = $("#login_btn");
+            $.ajax({
+              type: "POST",
+              url: "functions.php",
+              data: formData,
+              dataType: "json",
+              beforeSend: function () {
+                loginBtn
+                  .addClass("relative")
+                  .html(
+                    '<span class="inline-block h-4 w-4 animate-spin rounded-full border-2 border-solid border-current border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]"></span> Logging in...'
+                  );
+              },
+              success: function (response) {
+                if (response.status == 200) {
+                  $("#staff_id").val("");
+                  $("#password").val("");
+                  toastr.success(response.message);
+                  setTimeout(function () {
+                    window.location.href = "dashboard.html";
+                  }, 1000);
+                  formData.staff_id = "";
+                  formData.password = "";
+                  loginBtn.removeClass("relative").html("Log In");
+                } else {
+                  toastr.error(response.message);
+                  loginBtn.removeClass("relative").html("Log In");
+                }
+              },
+              error: function (xhr, status, error) {
+                alert("request failed:", status, error);
+              },
+            });
+          }
+        });
+      });
+    </script>
   </body>
 </html>
