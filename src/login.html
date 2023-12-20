@@ -28,7 +28,7 @@
           <div class="flex items-center justify-center p-5 mb-5">
             <img src="images/police-logo.png" class="w-[40%] md:w-[20%]" />
           </div>
-          <form method="post" action="dashboard.html">
+          <form method="post" action="dashboard.php">
             <input
               type="text"
               class="p-2 mb-2 block w-full outline outline-1 outline-gray-200 rounded-md bg-transparent text-white"
@@ -133,7 +133,7 @@
                   $("#password").val("");
                   toastr.success(response.message);
                   setTimeout(function () {
-                    window.location.href = "dashboard.html";
+                    window.location.href = "dashboard.php";
                   }, 1000);
                   formData.staff_id = "";
                   formData.password = "";

@@ -1,41 +1,42 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <head>
-      <meta charset="UTF-8" />
-      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <link href="../../dist/output.css" rel="stylesheet" />
-      <title>Login</title>
-    </head>
-  </head>
+
   <body>
-    <form>
+    <form method="post" action="">
       <input
         type="text"
-        name=""
+        name="task"
+        id="task"
         placeholder="task"
         class="p-2 mb-2 block w-full outline outline-1 outline-gray-200 rounded-md"
       />
+      <p class="text-red-500 text-sm" id="taskErrorDiv"></p>
       <input
         type="text"
-        name=""
+        name="officer"
+        id="officer"
         placeholder="officer"
         class="p-2 mb-2 block w-full outline outline-1 outline-gray-200 rounded-md"
       />
+      <p class="text-red-500 text-sm" id="officerErrorDiv"></p>
       <input
         type="text"
-        name=""
+        name="description"
+        id="description"
         placeholder="description"
         class="p-2 mb-2 block w-full outline outline-1 outline-gray-200 rounded-md"
       />
+      <p class="text-red-500 text-sm" id="descriptionErrorDiv"></p>
       <input
         type="text"
-        name=""
+        name="location"
+        id="location"
         placeholder="location"
         class="p-2 mb-2 block w-full outline outline-1 outline-gray-200 rounded-md"
       />
+      <p class="text-red-500 text-sm" id="locationErrorDiv"></p>
       <input
         type="submit"
+        id="addTaskBtn"
+        name="addTaskBtn"
         value="Assign"
         class="p-2 mb-2 block w-full bg-blue-900 rounded-md text-white"
       />
