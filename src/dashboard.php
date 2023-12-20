@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
     <link href="../dist/output.css" rel="stylesheet" />
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <link
@@ -16,9 +17,7 @@
     <title>GP-EDMS</title>
 </head>
   <body>
-    <p class="text-purple-600">aaaaaa</p>
-    <!-- Sidebar -->
-    <div class="flex h-screen bg-red-400">
+    <div class="flex h-screen bg-white">
       <div class="flex-none w-64 p-6 bg-indigo-900 border-r">
         <h1 class="text-2xl font-semibold text-white">GP-EDMS</h1>
         <ul class="mt-6" id="menu">
@@ -171,7 +170,7 @@
     <script>
       $(document).ready(function () {
         function showLoading() {
-        var loadingSpinner = '<i class="m-12 inline-block h-4 w-4 animate-spin rounded-full border-2 border-solid border-current border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite] text-blue-500"></i>';
+        var loadingSpinner = '<div class="flex h-screen justify-center items-center"><i class="inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite] text-blue-500"></i></div>';
         $("#main-content").html(loadingSpinner);
       }
         // Function to load content into the main content div

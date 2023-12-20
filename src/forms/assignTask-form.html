@@ -41,5 +41,53 @@
         class="p-2 mb-2 block w-full bg-blue-900 rounded-md text-white"
       />
     </form>
+    <script
+      type="text/javascript"
+      src="
+    https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"
+    ></script>
+    <script>
+      $(document).ready(function () {
+  $("#addTaskBtn").click(function (e) {
+    e.preventDefault();
+    var formData = {
+      task: $("#task").val(),
+      officer: $("#officer").val(),
+      description: $("#description").val(),
+      location: $("#location").val(),
+      addTaskBtn: 1,
+    };
+
+    var addTaskBtn = $("#addTaskBtn");
+    $.ajax({
+      type: "POST",
+      url: "backend/addTask.php",
+      data: formData,
+      dataType: "json",
+      beforeSend: function () {
+        addTaskBtn.val("Assigning task...");
+      },
+      complete: function () {
+        addTaskBtn.val("Assign");
+      },
+      success: function (response) {
+        if (response.status == 200) {
+          toastr.success(response.message);
+          // Optionally reset form fields
+          $("#task, #officer, #description, #location").val("");
+        } else {
+          toastr.error(response.message);
+        }
+      },
+      error: function (xhr, status, error) {
+        alert("Request failed: " + error);
+      },
+    });
+
+  });
+});
+
+    </script>
+
   </body>
 </html>
