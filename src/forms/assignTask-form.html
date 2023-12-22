@@ -1,6 +1,8 @@
 
   <body>
-    <form method="post" action="">
+    <div class="">
+      <h1 class="text-3xl font-semibold text-blue-900 mb-2">Assign Task</h1>
+    <form method="post" action="" id="taskForm">
       <input
         type="text"
         name="task"
@@ -41,6 +43,7 @@
         class="p-2 mb-2 block w-full bg-blue-900 rounded-md text-white"
       />
     </form>
+  </div>
     <script
       type="text/javascript"
       src="
@@ -48,8 +51,8 @@
     ></script>
     <script>
       $(document).ready(function () {
-  $("#addTaskBtn").click(function (e) {
-    e.preventDefault();
+      $("#addTaskBtn").click(function (e) {
+      e.preventDefault();
     var formData = {
       task: $("#task").val(),
       officer: $("#officer").val(),
@@ -57,7 +60,6 @@
       location: $("#location").val(),
       addTaskBtn: 1,
     };
-
     var addTaskBtn = $("#addTaskBtn");
     $.ajax({
       type: "POST",

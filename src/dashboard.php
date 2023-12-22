@@ -64,7 +64,7 @@
               <li>
                 <a
                   href="#"
-                  data-content-url="tables/task-table.html"
+                  data-content-url="tables/tasks-table.html"
                   class="block px-4 py-2 text-white hover:text-indigo-900 hover:bg-indigo-500 focus:bg-indigo-500 focus:text-white sidebar-link"
                 >
                   <span class="mr-2"><i class="fas fa-eye"></i></span>
@@ -84,8 +84,8 @@
               <li>
                 <a
                   href="#"
-                  data-content-url="forms/add-officer.html"
-                  class="block px-4 py-2 text-white hover:text-indigo-900 hover:bg-indigo-500 focus:bg-indigo-500 focus:text-white"
+                  data-content-url=""
+                  class="block px-4 py-2 text-white hover:text-indigo-900 hover:bg-indigo-500 focus:bg-indigo-500 focus:text-white sidebar-link"
                 >
                   <span class="mr-2"><i class="fas fa-comment"></i></span>
                   New Chat
@@ -94,7 +94,7 @@
               <li>
                 <a
                   href="#"
-                  class="block px-4 py-2 text-white hover:text-indigo-900 hover:bg-indigo-500 focus:bg-indigo-500 focus:text-white"
+                  class="block px-4 py-2 text-white hover:text-indigo-900 hover:bg-indigo-500 focus:bg-indigo-500 focus:text-white sidebar-link"
                 >
                   <span class="mr-2"><i class="fas fa-address-book"></i></span>
                   My Contacts
@@ -103,7 +103,7 @@
               <li>
                 <a
                   href="#"
-                  class="block px-4 py-2 text-white hover:text-indigo-900 hover:bg-indigo-500 focus:bg-indigo-500 focus:text-white"
+                  class="block px-4 py-2 text-white hover:text-indigo-900 hover:bg-indigo-500 focus:bg-indigo-500 focus:text-white sidebar-link"
                 >
                   <span class="mr-2"><i class="fas fa-bell"></i></span>
                   Notifications
@@ -114,7 +114,7 @@
           <li class="mb-1">
             <a
               href="#"
-              class="flex items-center p-3 text-white hover:text-indigo-900 hover:bg-indigo-500 focus:bg-indigo-500 focus:text-white"
+              class="flex items-center p-3 text-white hover:text-indigo-900 hover:bg-indigo-500 focus:bg-indigo-500 focus:text-white sidebar-link"
             >
               <span class="mr-2"><i class="fas fa-chart-bar"></i></span>
               Analytics
@@ -125,26 +125,28 @@
               href="#"
               class="flex items-center p-3 text-white hover:text-indigo-900 hover:bg-indigo-500 focus:bg-indigo-500 focus:text-white"
             >
-              <span class="mr-2"><i class="fas fa-cogs"></i></span> Settings
+              <span class="mr-2"><i class="fas fa-cogs"></i></span> Officers
             </a>
             <!-- Submenu for Settings -->
             <ul class="ml-4 space-y-1 hidden">
               <li>
                 <a
                   href="#"
-                  class="block px-4 py-2 text-white hover:text-indigo-900 hover:bg-indigo-500 focus:bg-indigo-500 focus:text-white"
+                  data-content-url="forms/add-officer.html"
+                  class="block px-4 py-2 text-white hover:text-indigo-900 hover:bg-indigo-500 focus:bg-indigo-500 focus:text-white sidebar-link"
                 >
                   <span class="mr-2"><i class="fas fa-user-cog"></i></span>
-                  User Settings
+                  Add Officer
                 </a>
               </li>
               <li>
                 <a
                   href="#"
-                  class="block px-4 py-2 text-white hover:text-indigo-900 hover:bg-indigo-500 focus:bg-indigo-500 focus:text-white"
+                  data-content-url="forms/add-officer.html"
+                  class="block px-4 py-2 text-white hover:text-indigo-900 hover:bg-indigo-500 focus:bg-indigo-500 focus:text-white sidebar-link"
                 >
                   <span class="mr-2"><i class="fas fa-wrench"></i></span>
-                  System Settings
+                  View Officers
                 </a>
               </li>
             </ul>

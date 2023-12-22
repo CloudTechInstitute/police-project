@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task Table</title>
+    <!-- Include jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+  </head>
+  <body>
+    <div class="p-2">
+      <h1 class="text-3xl text-blue-900 mb-2 font-semibold">Tasks</h1>
+      <div class="w-full text-left">
+        <div class="border-b border-gray-200">
+          <table
+            class="w-full divide-y divide-gray-300 border border-1"
+            id="tasksTable"
+          >
+            <thead class="bg-gray-100">
+              <tr>
+                <th class="px-6 py-2 text-xs text-gray-500">Task</th>
+                <th class="px-6 py-2 text-xs text-gray-500">Officer</th>
+                <th class="px-6 py-2 text-xs text-gray-500">Description</th>
+                <th class="px-6 py-2 text-xs text-gray-500">Location</th>
+                <th class="px-6 py-2 text-xs text-gray-500">Date</th>
+                <th class="px-6 py-2 text-xs text-gray-500">Status</th>
+                <th class="px-6 py-2 text-xs text-gray-500">Action</th>
+              </tr>
+            </thead>
+            <tbody class="bg-white divide-y divide-gray-300"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      $(document).ready(function () {
+        function populateTable(tasks) {
+          var tbody = $("#tasksTable tbody");
+          tbody.empty(); // Clear existing rows
+
+          if (tasks.length === 0) {
+            // Display a message if there are no tasks
+            tbody.append(
+              "<tr><td colspan='5' class='text-center'>No tasks found</td></tr>"
+            );
+          } else {
+            // Populate the table with task data
+            $.each(tasks, function (index, task) {
+              var row = $("<tr>");
+              row.append(
+                "<td class='px-6 py-4 text-sm text-gray-500'>" +
+                  task.task +
+                  "</td>"
+              );
+              row.append(
+                "<td class='px-6 py-4'><div class='text-sm text-gray-900'>" +
+                  task.officer +
+                  "</div></td>"
+              );
+              row.append(
+                "<td class='px-6 py-4'><div class='text-sm text-gray-500'>" +
+                  task.description +
+                  "</div></td>"
+              );
+              row.append(
+                "<td class='px-6 py-4 text-sm text-gray-500'>" +
+                  task.location +
+                  "</td>"
+              );
+              row.append(
+                "<td class='px-6 py-4 text-sm text-gray-500'>" +
+                  task.date +
+                  "</td>"
+              );
+              row.append(
+                "<td class='px-6 py-4 text-sm text-gray-500'>" +
+                  task.status +
+                  "</td>"
+              );
+              row.append(
+                "<td class='px-6 py-4'>" +
+                  "<a href='#' class='px-4 py-1 text-sm text-blue-600 rounded-full'><i class='fas fa-pen' title='edit'></i></a> " +
+                  "<a href='#' class='px-4 py-1 text-sm text-red-500 rounded-full'><i class='fas fa-trash' title='delete'></i></a>" +
+                  "</td>"
+              );
+
+              tbody.append(row);
+            });
+          }
+        }
+
+        // Function to fetch and update tasks
+        function updateTasks() {
+          $.ajax({
+            type: "GET",
+            url: "backend/fetch-task.php",
+            dataType: "json",
+            success: function (response) {
+              // showLoading();
+              if (response.status == 200) {
+                populateTable(response.tasks);
+              } else {
+                alert("Error: " + response.message);
+              }
+            },
+            error: function (xhr, status, error) {
+              alert("Request failed: " + error);
+            },
+          });
+        }
+
+        // Periodically update tasks every 5 seconds (adjust as needed)
+        setInterval(updateTasks, 5000);
+
+        // Initial fetch on page load
+        updateTasks();
+      });
+    </script>
+  </body>
+</html>

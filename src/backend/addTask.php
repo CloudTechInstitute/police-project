@@ -14,7 +14,7 @@ $date = date("Y-m-d");
 $result = mysqli_query($conn, "INSERT INTO tasks (`task`, `officer`, `description`, `location`, `date`) VALUES('$task', '$officer','$description','$location', '$date')");
 
 if ($result) {
-    echo json_encode(["status" => "200", "message" => "Task assigned created"]);
+    echo json_encode(["status" => "200", "message" => "Task assigned successfully."]);
 } else {
     echo json_encode(["status" => "404", "message" => "Oops! Something went wrong: " . mysqli_error($conn)]);
 }
