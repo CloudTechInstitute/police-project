@@ -1,3 +1,11 @@
+<?php
+// session_start();
+// $conn = mysqli_connect("localhost", "root", "", "gpedms");
+// if (!isset($_SESSION['user'])) {
+//     header("location: login.html");
+// }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -14,6 +22,7 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css"
     />
+
     <title>GP-EDMS</title>
 </head>
   <body>
@@ -76,48 +85,30 @@
           <li class="mb-1">
             <a
               href="#"
-              class="flex items-center p-3 text-white hover:text-indigo-900 hover:bg-indigo-500 focus:bg-indigo-500 focus:text-white"
+              data-content-url="chat/login.php"
+              class="flex items-center p-3 text-white hover:text-indigo-900 hover:bg-indigo-500 focus:bg-indigo-500 focus:text-white sidebar-link"
             >
               <span class="mr-2"><i class="fas fa-message"></i></span> Chat
             </a>
-            <ul class="ml-4 space-y-1 hidden">
-              <li>
-                <a
-                  href="#"
-                  data-content-url=""
-                  class="block px-4 py-2 text-white hover:text-indigo-900 hover:bg-indigo-500 focus:bg-indigo-500 focus:text-white sidebar-link"
-                >
-                  <span class="mr-2"><i class="fas fa-comment"></i></span>
-                  New Chat
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  class="block px-4 py-2 text-white hover:text-indigo-900 hover:bg-indigo-500 focus:bg-indigo-500 focus:text-white sidebar-link"
-                >
-                  <span class="mr-2"><i class="fas fa-address-book"></i></span>
-                  My Contacts
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  class="block px-4 py-2 text-white hover:text-indigo-900 hover:bg-indigo-500 focus:bg-indigo-500 focus:text-white sidebar-link"
-                >
-                  <span class="mr-2"><i class="fas fa-bell"></i></span>
-                  Notifications
-                </a>
-              </li>
-            </ul>
           </li>
           <li class="mb-1">
             <a
               href="#"
+              data-content-url="tables/analytics.html"
               class="flex items-center p-3 text-white hover:text-indigo-900 hover:bg-indigo-500 focus:bg-indigo-500 focus:text-white sidebar-link"
             >
               <span class="mr-2"><i class="fas fa-chart-bar"></i></span>
               Analytics
+            </a>
+          </li>
+          <li class="mb-1">
+            <a
+              href="#"
+              data-content-url="tables/notifications.html"
+              class="flex items-center p-3 text-white hover:text-indigo-900 hover:bg-indigo-500 focus:bg-indigo-500 focus:text-white sidebar-link"
+            >
+              <span class="mr-2"><i class="fas fa-bell"></i></span>
+              Notifications
             </a>
           </li>
           <li class="mb-1">
