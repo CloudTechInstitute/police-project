@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="../dist/output.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="../node_modules/@fortawesome/fontawesome-free/css/all.min.css"
+    />
+    <title>dashboardContent</title>
+  </head>
+  <body>
+    <div class="flex-grow p-6 space-y-10">
+      <h1 class="text-5xl font-semibold text-gray-800 mb-4">Dashboard</h1>
+      <div class="grid grid-cols-4 gap-4 mb-4">
+        <div class="bg-white p-3 rounded">
+          <h3 class="text-xl">Number of tasks</h3>
+          <p class="font-bold p-10 text-5xl text-center text-indigo-900">
+            <i class="fa-solid text-4xl fa-list"></i>
+            15
+          </p>
+        </div>
+        <div class="bg-white p-3 rounded">
+          <h3 class="text-xl">Tasks completed</h3>
+          <p class="font-bold p-10 text-5xl text-center text-indigo-900">
+            <i class="fa-solid text-4xl fa-list-check"></i>
+            10
+          </p>
+        </div>
+        <div class="bg-white p-3 rounded">
+          <h3 class="text-xl">
+            Tasks in progress
+          </h3>
+          <p class="font-bold p-10 text-5xl text-center text-indigo-900">
+            <i class="fa-solid text-4xl fa-bars-progress"></i>
+            3
+          </p>
+        </div>
+        <div class="bg-white p-3 rounded">
+          <h3 class="text-xl">Tasks pending</h3>
+          <p class="font-bold p-10 text-5xl text-center text-indigo-900">
+            <i class="fa-solid text-4xl fa-clock"></i>
+            2
+          </p>
+        </div>
+      </div>
+      <div>
+        <table
+          class="min-w-full table-auto border-collapse border border-gray-400"
+        >
+          <thead>
+            <tr>
+              <th class="py-4 text-xl text-white text-start px-3 bg-gray-600">
+                Tasks
+              </th>
+              <th class="py-4 text-xl text-white text-start px-3 bg-gray-600">
+                Description
+              </th>
+              <th class="py-4 text-xl text-white text-start px-3 bg-gray-600">
+                Location
+              </th>
+              <th class="py-4 text-xl text-white text-start px-3 bg-gray-600">
+                Date
+              </th>
+              <th class="py-4 text-xl text-white text-start px-3 bg-gray-600">
+                Status
+              </th>
+            </tr>
+          </thead>
+          <tbody class="bg-white">
+            <tr>
+              <td class="px-3 py-4 text-lg">Witchy Woman</td>
+              <td class="px-3 py-4 text-lg">The Eagles</td>
+              <td class="px-3 py-4 text-lg">1972</td>
+              <td class="px-3 py-4 text-lg">in progress</td>
+              <td class="px-3 py-4 text-lg">10/02/2033</td>
+            </tr>
+            <tr class="bg-gray-100">
+              <td class="px-3 py-4 text-lg">Shining Star</td>
+              <td class="px-3 py-4 text-lg">Earth, Wind, and Fire</td>
+              <td class="px-3 py-4 text-lg">1975</td>
+              <td class="px-3 py-4 text-lg">completes</td>
+              <td class="px-3 py-4 text-lg">10/09/2023</td>
+            </tr>
+            <tr>
+              <td class="px-3 py-4 text-lg">Witchy Woman</td>
+              <td class="px-3 py-4 text-lg">The Eagles</td>
+              <td class="px-3 py-4 text-lg">1972</td>
+              <td class="px-3 py-4 text-lg">in progress</td>
+              <td class="px-3 py-4 text-lg">10/02/2033</td>
+            </tr>
+            <tr class="bg-gray-100">
+              <td class="px-3 py-4 text-lg">Shining Star</td>
+              <td class="px-3 py-4 text-lg">Earth, Wind, and Fire</td>
+              <td class="px-3 py-4 text-lg">1975</td>
+              <td class="px-3 py-4 text-lg">completes</td>
+              <td class="px-3 py-4 text-lg">10/09/2023</td>
+            </tr>
+            <tr>
+              <td class="px-3 py-4 text-lg">Witchy Woman</td>
+              <td class="px-3 py-4 text-lg">The Eagles</td>
+              <td class="px-3 py-4 text-lg">1972</td>
+              <td class="px-3 py-4 text-lg">in progress</td>
+              <td class="px-3 py-4 text-lg">10/02/2033</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </body>
+</html>

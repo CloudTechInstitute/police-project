@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="../dist/output.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="../node_modules/@fortawesome/fontawesome-free/css/all.min.css"
+    />
+    <title>dashboardContent</title>
+  </head>
+  <body>
+    <div class="flex-grow p-6 space-y-10">
+      <div class="flex flex-row w-[50%] rounded-lg p-1">
+        <div class="flex flex-col w-[100%] justify-center">
+          <h1 class="text-5xl font-semibold mb-5">
+            Personal Information
+          </h1>
+          <div class="flex w-[100%] mb-2">
+            <img
+              class="w-32 h-32 outline outline-1 outline-indigo-900 rounded-full bg-[#000]"
+              src="./asset/2.jpg"
+              alt="profile"
+            />
+            <div class="text-indigo-900">
+              <p class="flex ml-2 mt-10 mr-10">Fatou Bintou</p>
+              <p class="ml-2 font-bold cursor-pointer underline">
+                Change
+              </p>
+            </div>
+          </div>
+          <div class="flex flex-col text-left">
+            <input
+              type="text"
+              placeholder="enter first name"
+              class="block p-2 mb-2 rounded w-full outline outline-1 outline-indigo-900 bg-transparent"
+              name="firstname"
+              onBlur="{handleBlur}"
+            />
+          </div>
+          <div class="flex flex-col text-left">
+            <input
+              type="text"
+              placeholder="enter last name"
+              class="block p-2 mb-2 rounded w-full outline outline-1 outline-indigo-900 bg-transparent"
+              name="lastname"
+              onBlur="{handleBlur}"
+            />
+          </div>
+          <div class="flex flex-col text-left">
+            <input
+              type="email"
+              placeholder="enter email"
+              class="block p-2 mb-2 rounded w-full outline outline-1 outline-indigo-900 bg-transparent"
+              name="email"
+              onBlur="{handleBlur}"
+            />
+          </div>
+          <div class="flex flex-col text-left">
+            <input
+              type="password"
+              placeholder="enter password"
+              class="block p-2 mb-2 rounded w-full outline outline-1 outline-indigo-900 bg-transparent"
+              name="password"
+              onBlur="{handleBlur}"
+            />
+          </div>
+          <div class="flex flex-col text-left">
+            <input
+              type="password"
+              placeholder="confirm your password"
+              class="block p-2 mb-2 rounded w-full outline outline-1 outline-indigo-900 bg-transparent"
+              name="cpassword"
+              onBlur="{handleBlur}"
+            />
+          </div>
+          <div class="flex flex-col text-left">
+            <input
+              type="text"
+              placeholder="enter phone number"
+              class="block p-2 mb-2 rounded w-full outline outline-1 outline-indigo-900 bg-transparent"
+              name="phone"
+              onBlur="{handleBlur}"
+            />
+          </div>
+          <div>
+            <button
+              type="submit"
+              class="text-[#fff] rounded-md mt-3 bg-indigo-900 font-bold w-full p-2"
+            >
+              Save
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
