@@ -9,10 +9,15 @@ $staff_id = isset($_POST['staff_id']) ? $_POST['staff_id'] : "";
 $password = isset($_POST['password']) ? $_POST['password'] : "";
 
 $query = mysqli_query($conn, "SELECT * FROM users WHERE staff_id ='$staff_id' AND password ='$password'");
-if (mysqli_num_rows($query) > 0) {
-    $_SESSION['user'] = $row['staff_id'];
-    echo json_encode(["status" => "200", "message" => "login succesful"]);
+if ($query) {
+    if (mysqli_num_rows($query) > 0) {
+        $row = mysqli_fetch_assoc($query);
+        $_SESSION['unique_id'] = $row['unique_id'];
+        echo json_encode(["status" => "200", "message" => "login successful"]);
+    } else {
+        echo json_encode(["status" => "404", "message" => "user not found"]);
+    }
 } else {
-    echo json_encode(["status" => "404", "message" => "user not found"]);
-
+    // Handle query error
+    echo json_encode(["status" => "500", "message" => "query error: " . mysqli_error($conn)]);
 }

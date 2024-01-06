@@ -9,9 +9,10 @@ $task = isset($_POST['task']) ? $conn->real_escape_string($_POST['task']) : '';
 $officer = isset($_POST['officer']) ? $conn->real_escape_string($_POST['officer']) : '';
 $description = isset($_POST['description']) ? $conn->real_escape_string($_POST['description']) : '';
 $location = isset($_POST['location']) ? $conn->real_escape_string($_POST['location']) : '';
+$status = "pending";
 $date = date("Y-m-d");
 
-$result = mysqli_query($conn, "INSERT INTO tasks (`task`, `officer`, `description`, `location`, `date`) VALUES('$task', '$officer','$description','$location', '$date')");
+$result = mysqli_query($conn, "INSERT INTO tasks (`task`, `officer`, `description`, `location`, `status`, `date`) VALUES('$task', '$officer','$description','$location', '$status', '$date')");
 
 if ($result) {
     echo json_encode(["status" => "200", "message" => "Task assigned successfully."]);

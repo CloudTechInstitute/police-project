@@ -58,7 +58,18 @@
             id="editOfficer"
             class="w-full mb-4 p-2 border border-gray-300 rounded"
           />
-          <!-- Add more input fields as needed -->
+          <label for="editLocation">Location:</label>
+          <input
+            type="text"
+            id="editLocation"
+            class="w-full mb-4 p-2 border border-gray-300 rounded"
+          />
+          <label for="editDescription">Description:</label>
+          <input
+            type="text"
+            id="editDescription"
+            class="w-full mb-4 p-2 border border-gray-300 rounded"
+          />
 
           <!-- Save and Close buttons -->
           <button
@@ -83,8 +94,8 @@
     ></script>
     <script>
       $(document).ready(function () {
+        var tasks;
         function deleteTask(taskId) {
-          console.log("Deleting task with ID:", taskId);
           $.ajax({
             type: "POST",
             url: "backend/delete-task.php",
@@ -94,11 +105,11 @@
               if (response.status == 200) {
                 updateTasks();
               } else {
-                alert("Error deleting task: " + response.message);
+                toastr.error("Error deleting task: " + response.message);
               }
             },
             error: function (xhr, status, error) {
-              alert("Request failed: " + error);
+              toastr.error("Request failed: " + error);
             },
           });
         }
@@ -107,12 +118,13 @@
           // Populate modal input fields with task details for editing
           $("#editTaskName").val(task.task);
           $("#editOfficer").val(task.officer);
-          // Add similar lines for other input fields
+          $("#editLocation").val(task.location);
+          $("#editDescription").val(task.description);
 
           // Show the modal
           $("#editModal").removeClass("hidden");
 
-          // Add event listener for Save button
+          // Save button
           $("#saveChanges").on("click", function () {
             // Implement your save changes logic here
             console.log("Saving changes...");
@@ -221,6 +233,7 @@
             success: function (response) {
               // showLoading();
               if (response.status == 200) {
+                tasks = response.tasks;
                 populateTable(response.tasks);
               } else {
                 tbody.append(

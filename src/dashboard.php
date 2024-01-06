@@ -1,9 +1,9 @@
 <?php
-// session_start();
-// $conn = mysqli_connect("localhost", "root", "", "gpedms");
-// if (!isset($_SESSION['user'])) {
-//     header("location: login.html");
-// }
+session_start();
+$conn = mysqli_connect("localhost", "root", "", "gpedms");
+if (!isset($_SESSION['unique_id'])) {
+    header("location: login.html");
+}
 ?>
 
 <!DOCTYPE html>
@@ -84,9 +84,9 @@
           </li>
           <li class="mb-1">
             <a
-              href="#"
-              data-content-url="chat/login.php"
-              class="flex items-center p-3 text-white hover:text-indigo-900 hover:bg-indigo-500 focus:bg-indigo-500 focus:text-white sidebar-link"
+              href="chat/chat.php"
+              data-content-url=""
+              class="flex items-center p-3 text-white hover:text-indigo-900 hover:bg-indigo-500 focus:bg-indigo-500 focus:text-white"
             >
               <span class="mr-2"><i class="fas fa-message"></i></span> Chat
             </a>
@@ -144,7 +144,7 @@
           </li>
           <li class="mb-1">
             <a
-              href="#"
+              href="logout.php"
               class="flex items-center p-3 text-white hover:text-white hover:bg-red-500 focus:bg-indigo-500 focus:text-white"
             >
               <span class="mr-2"><i class="fas fa-sign-out-alt"></i></span>
